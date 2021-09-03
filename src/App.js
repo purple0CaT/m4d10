@@ -3,23 +3,46 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./components/Home";
-import './css/sidebar.css'
+import Arrows from "./components/Arrows";
 function App() {
   return (
     <Router>
       <Switch>
         {/* Home */}
-        <Route path="/" exact render={()=>{ return(
-          <Layout>
-            <Home />
-          </Layout>)
-        }}/>
+        <Route
+          path="/"
+          exact
+          render={() => {
+            return (
+              <Layout>
+              </Layout>
+            );
+          }}
+        />
         {/* Artist */}
-        <Route path="/artist/:artistName" exact render={()=>{ return(
-          <Layout>
-            <Home />
-          </Layout>)
-        }}/>
+        <Route
+          path="/artist/:artistName"
+          exact
+          render={() => {
+            return (
+              <Layout>
+                <Home />
+              </Layout>
+            );
+          }}
+        />
+        {/* Album */}
+        <Route
+          path="/artist/:albumId"
+          exact
+          render={() => {
+            return (
+              <Layout>
+                <Home />
+              </Layout>
+            );
+          }}
+        />
         {/* DEFAULT */}
         <Route
           render={() => (

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import '../css/sidebar.css'
 import { FaSpotify, FaHome } from "react-icons/fa";
 import { VscLibrary } from "react-icons/vsc";
 import { BsSearch, BsPlusSquareFill } from "react-icons/bs";

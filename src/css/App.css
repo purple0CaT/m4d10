@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  font-size: 1rem;
+  font-family: fontBold;
+  background: rgb(63, 7, 6);
+  background: linear-gradient(
+    180deg,
+    rgba(63, 7, 6, 1) 0%,
+    rgba(18, 18, 18, 1) 40%
+  );
+}
+img {
+  object-fit: cover;
+}
+a:hover {
+  text-decoration: none !important;
+  color: unset !important;
+}
+a {
+  text-decoration: none !important;
+  transition: 0.25s;
+}
+
+/* ARROWS BAR */
+.arrows-bar {
+  position: absolute;
+  display: flex;
+  left: 0;
+  right: 0;
+  margin: 1rem 2rem 0 2rem !important;
+  justify-content: space-between;
+}
+.arrows a svg {
+  color: rgba(0, 0, 0, 0.459);
+  transition: 0.25s !important;
+  border-radius: 50%;
+}
+.arrows a svg:hover {
+  color: black;
+  background-color: white;
+border: unset
+}
+/* PROFILE DROPDOWN */
+.profileDrop {
+  background-color: black !important;
+  border-radius: 25rem;
+  color: white !important;
+}
+.profileDrop img {
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  margin-right: 0.5rem !important;
+}
+.profileDrop span {
+  margin-right: 1rem;
+  padding-top: 0.1rem;
+}
+#dropdownLogin {
+  background-color: black !important;
+  border-bottom-right-radius: 20rem;
+  border-top-right-radius: 20rem;
+  border: unset !important;
+}
+#dropdownLogin::after {
+}
+.dropdown-menu {
+  background-color: black !important;
+}
+.dropdown-item {
+  color: white !important;
+}
+/* CONTENT Section */
+.h-main {
+  position: relative;
+  width: calc(100% - 15rem);
+}
+/*  */
