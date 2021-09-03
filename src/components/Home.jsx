@@ -1,15 +1,24 @@
 import React from "react";
 import "../css/homestyle.css";
+import { Row, Col } from "react-bootstrap";
+import AlbumCard from "./AlbumCard";
+import AlbumTopCard from "./AlbumTopCard";
 
 export default function Home() {
+  let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1];
+  let arr = [1, 2, 3, 4, 5, 6, 7];
   return (
     <div class="mt-5 px-5">
       <br />
       <h3 class="header">Good Morning</h3>
       {/* <!-- Good Morning --> */}
       <div class="d-flex morn-tabs" id="albumRow">
-        {/* <!-- ALBUMS --> */}
+        {/* MAPPING HEREE GOES */}
+        {array.map((arr) => (
+          <AlbumTopCard />
+        ))}
       </div>
+      {/* <!-- ALBUMS --> */}
       <br />
       <div class="d-flex justify-content-between align-items-end recently-ply">
         <h4 class="header"> Recently played</h4>
@@ -19,31 +28,9 @@ export default function Home() {
       </div>
       {/* <!-- recent played --> */}
       <div class="recent-played mt-2">
-        <a href="#" class="recent-card p-3">
-          <div class="img-card-q">
-            <img src="https://source.unsplash.com/random?34" alt="" />
-            <img src="https://source.unsplash.com/random?24" alt="" />
-            <img src="https://source.unsplash.com/random?14" alt="" />
-            <img src="https://source.unsplash.com/random?12" alt="" />
-          </div>
-          <div class="body-card mt-2">
-            <h6>Mix band</h6>
-            <small></small>
-          </div>
-        </a>
-
-        <a href="#" class="recent-card p-3">
-          <div class="img-card">
-            <img
-              src="https://i1.sndcdn.com/artworks-000007961789-vo19ve-t500x500.jpg"
-              alt=""
-            />
-          </div>
-          <div class="body-card mt-2">
-            <h6>Poison Lips</h6>
-            <small>Vitalic</small>
-          </div>
-        </a>
+        {arr.map((arr) => (
+          <AlbumCard />
+        ))}
       </div>
       <br />
       {/* <!-- Shows to try --> */}
@@ -59,31 +46,9 @@ export default function Home() {
         </a>
       </div>
       <div class="recent-played mt-2">
-        <a href="#" class="recent-card p-3">
-          <div class="img-card-q">
-            <img src="https://source.unsplash.com/random?34" alt="" />
-            <img src="https://source.unsplash.com/random?24" alt="" />
-            <img src="https://source.unsplash.com/random?14" alt="" />
-            <img src="https://source.unsplash.com/random?12" alt="" />
-          </div>
-          <div class="body-card mt-2">
-            <h6>Mix band</h6>
-            <small></small>
-          </div>
-        </a>
-
-        <a href="#" class="recent-card p-3">
-          <div class="img-card">
-            <img
-              src="https://i1.sndcdn.com/artworks-000007961789-vo19ve-t500x500.jpg"
-              alt=""
-            />
-          </div>
-          <div class="body-card mt-2">
-            <h6>Poison Lips</h6>
-            <small>Vitalic</small>
-          </div>
-        </a>
+        {arr.map((arr) => (
+          <AlbumCard />
+        ))}
       </div>
 
       {/* <!-- reapeting --> */}
@@ -100,31 +65,9 @@ export default function Home() {
         </a>
       </div>
       <div class="recent-played mt-2">
-        <a href="#" class="recent-card p-3">
-          <div class="img-card-q">
-            <img src="https://source.unsplash.com/random?34" alt="" />
-            <img src="https://source.unsplash.com/random?24" alt="" />
-            <img src="https://source.unsplash.com/random?14" alt="" />
-            <img src="https://source.unsplash.com/random?12" alt="" />
-          </div>
-          <div class="body-card mt-2">
-            <h6>Mix band</h6>
-            <small></small>
-          </div>
-        </a>
-
-        <a href="#" class="recent-card p-3">
-          <div class="img-card">
-            <img
-              src="https://i1.sndcdn.com/artworks-000007961789-vo19ve-t500x500.jpg"
-              alt=""
-            />
-          </div>
-          <div class="body-card mt-2">
-            <h6>Poison Lips</h6>
-            <small>Vitalic</small>
-          </div>
-        </a>
+        {arr.map((arr) => (
+          <AlbumCard />
+        ))}
       </div>
     </div>
   );

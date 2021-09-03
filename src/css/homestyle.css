@@ -33,7 +33,7 @@
     border-radius: 0.3rem;
 
     overflow: hidden;
-    color: white;
+    color: rgba(255, 255, 255, 0.541);
     text-decoration: none;
     transition: 0.3s;
     font-family: fontBold;
@@ -96,7 +96,7 @@
 }
 .recent-card:hover {
     text-decoration: none;
-    color: white;
+    color: white !important;
 }
 /* for 4 img in card */
 .img-card-q {

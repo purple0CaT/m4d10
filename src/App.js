@@ -15,6 +15,8 @@ function App() {
           render={() => {
             return (
               <Layout>
+                {" "}
+                <Home />
               </Layout>
             );
           }}
