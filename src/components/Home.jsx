@@ -3,21 +3,26 @@ import "../css/homestyle.css";
 import AlbumCard from "./AlbumCard";
 import AlbumTopCard from "./AlbumTopCard";
 import { useEffect, useState } from "react";
+import { Spinner } from "react-bootstrap";
 
 export default function Home() {
   // Albums
-  const [Album, setAlbum] = useState();
+  const [Album, setAlbum] = useState({ loaded: false, albumSearch: "" });
+  // Update
+  useEffect(() => {
+    fetchAlbum("AC/DC");
+  }, []);
   // fetching
-  const fetchAlbum = async () => {
+  const fetchAlbum = async (search) => {
     try {
       let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/deezer/search?q=rammstein"
+        "https://striveschool-api.herokuapp.com/api/deezer/search?q="+search
       );
       if (response.ok) {
         let data = await response.json();
-        setAlbum({ albumSongs: data });
+        setAlbum({albumSearch: data });
         setTimeout(() => {
-          console.log(Album);
+          console.log(Album.albumSearch);
         }, 2000);
       } else {
         console.log("Error");
@@ -26,12 +31,9 @@ export default function Home() {
       console.log(error);
     }
   };
-  // Update
-  useEffect(() => {
-    fetchAlbum();
-  }, []);
-  let artist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1];
-  let album = [1, 2, 3, 4, 5, 6, 7];
+//   const 
+  let artist = [1];
+  let album = [1];
   return (
     <div className="mt-5 px-5">
       <br />
@@ -47,15 +49,25 @@ export default function Home() {
       <br />
       <div className="d-flex justify-content-between align-items-end recently-ply">
         <h4 className="header"> Albums</h4>
-        <a href="#">
+        <a href=''>
           <small>SEE ALL</small>
         </a>
       </div>
-      {/* <!-- recent played --> */}
       <div className="recent-played mt-2">
-        {album.map((arr) => (
-          <AlbumCard />
-        ))}
+        {Album.albumSearch ? (
+          Album.albumSearch.data
+            .slice(0, 7)
+            .map((albm) => (
+              <AlbumCard
+                albumId={albm.album.id}
+                title={albm.album.title}
+                artist={Album.albumSearch.data[0].artist.name}
+                image={albm.album.cover}
+              />
+            ))
+        ) : (
+          <Spinner className="mx-auto" animation="grow" variant="light" />
+        )}
       </div>
       <br />
       {/* <!-- Shows to try --> */}
@@ -66,7 +78,7 @@ export default function Home() {
             Podcasts we think you'll get hooked on
           </small>
         </div>
-        <a href="#">
+        <a>
           <small>SEE ALL</small>
         </a>
       </div>
