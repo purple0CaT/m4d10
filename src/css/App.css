@@ -110,3 +110,10 @@ input {
 .album-songs div div a:hover {
   color: green !important;
 }
+/* ARTIST */
+.artist-top-bg{
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 40%;
+    color: white;
+}

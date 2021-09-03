@@ -24,7 +24,7 @@ function App() {
         />
         {/* Artist */}
         <Route
-          path="/artist/:artistName"
+          path="/artist/:artistId"
           render={(routerProps) => {
             return (
               <Layout>

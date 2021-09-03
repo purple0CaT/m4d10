@@ -50,7 +50,7 @@ export default function Album({ match }) {
             />
             <h2 className="mt-1">{Album.albumSongs.title}</h2>
             <small className="text-muted">{Album.albumSongs.artist.name}</small>
-            <Button className="play-alb-btn" variant="success">
+            <Button className="play-alb-btn mt-5" variant="success">
               Play
             </Button>
             <div className="d-flex justify-content-around">

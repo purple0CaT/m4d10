@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function AlbumTopCard() {
+export default function AlbumTopCard({image, title, id}) {
   return (
-    <Link to="/" className="tab d-flex align-items-center align-middle">
+    <Link to={"/artist/"+id} className="tab d-flex align-items-center align-middle">
       <div className="mr-3">
         <img
-          src="https://i1.sndcdn.com/artworks-000007961789-vo19ve-t500x500.jpg"
-          alt=""
+          src={image}
+          alt={title}
         />
       </div>
-      <p className="inline-block">123</p>
+      <p className="inline-block">{title}</p>
     </Link>
   );
 }
