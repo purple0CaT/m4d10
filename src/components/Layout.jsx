@@ -9,8 +9,9 @@ export default function Layout({ children }) {
       <section className="d-flex">
         <SideBar />
         <div className="h-main">
-          <Arrows/>
-          {children}</div>
+          <Arrows />
+          {children}
+        </div>
       </section>
       <Player />
     </>

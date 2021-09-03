@@ -1,42 +1,67 @@
 import React from "react";
 import "../css/homestyle.css";
-import { Row, Col } from "react-bootstrap";
 import AlbumCard from "./AlbumCard";
 import AlbumTopCard from "./AlbumTopCard";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1];
-  let arr = [1, 2, 3, 4, 5, 6, 7];
+  // Albums
+  const [Album, setAlbum] = useState();
+  // fetching
+  const fetchAlbum = async () => {
+    try {
+      let response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/deezer/search?q=rammstein"
+      );
+      if (response.ok) {
+        let data = await response.json();
+        setAlbum({ albumSongs: data });
+        setTimeout(() => {
+          console.log(Album);
+        }, 2000);
+      } else {
+        console.log("Error");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  // Update
+  useEffect(() => {
+    fetchAlbum();
+  }, []);
+  let artist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1];
+  let album = [1, 2, 3, 4, 5, 6, 7];
   return (
-    <div class="mt-5 px-5">
+    <div className="mt-5 px-5">
       <br />
-      <h3 class="header">Good Morning</h3>
+      <h3 className="header">Artists</h3>
       {/* <!-- Good Morning --> */}
-      <div class="d-flex morn-tabs" id="albumRow">
+      <div className="d-flex morn-tabs" id="albumRow">
         {/* MAPPING HEREE GOES */}
-        {array.map((arr) => (
+        {artist.map((arr) => (
           <AlbumTopCard />
         ))}
       </div>
       {/* <!-- ALBUMS --> */}
       <br />
-      <div class="d-flex justify-content-between align-items-end recently-ply">
-        <h4 class="header"> Recently played</h4>
+      <div className="d-flex justify-content-between align-items-end recently-ply">
+        <h4 className="header"> Albums</h4>
         <a href="#">
           <small>SEE ALL</small>
         </a>
       </div>
       {/* <!-- recent played --> */}
-      <div class="recent-played mt-2">
-        {arr.map((arr) => (
+      <div className="recent-played mt-2">
+        {album.map((arr) => (
           <AlbumCard />
         ))}
       </div>
       <br />
       {/* <!-- Shows to try --> */}
-      <div class="d-flex justify-content-between align-items-end recently-ply">
+      <div className="d-flex justify-content-between align-items-end recently-ply">
         <div>
-          <h4 class="header"> Shows to try</h4>
+          <h4 className="header"> Shows to try</h4>
           <small style={{ color: "#b3b3b3", fontFamily: "fontBold" }}>
             Podcasts we think you'll get hooked on
           </small>
@@ -45,17 +70,17 @@ export default function Home() {
           <small>SEE ALL</small>
         </a>
       </div>
-      <div class="recent-played mt-2">
-        {arr.map((arr) => (
+      <div className="recent-played mt-2">
+        {album.map((arr) => (
           <AlbumCard />
         ))}
       </div>
 
       {/* <!-- reapeting --> */}
       <br />
-      <div class="d-flex justify-content-between align-items-end recently-ply">
+      <div className="d-flex justify-content-between align-items-end recently-ply">
         <div>
-          <h4 class="header"> Shows to try</h4>
+          <h4 className="header"> Shows to try</h4>
           <small style={{ color: "#b3b3b3", fontFamily: "fontBold" }}>
             Podcasts we think you'll get hooked on
           </small>
@@ -64,8 +89,8 @@ export default function Home() {
           <small>SEE ALL</small>
         </a>
       </div>
-      <div class="recent-played mt-2">
-        {arr.map((arr) => (
+      <div className="recent-played mt-2">
+        {album.map((arr) => (
           <AlbumCard />
         ))}
       </div>

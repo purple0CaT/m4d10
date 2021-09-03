@@ -3,7 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./components/Home";
-import Arrows from "./components/Arrows";
+import Album from "./components/Album";
+import Artist from "./components/Artist";
 function App() {
   return (
     <Router>
@@ -12,11 +13,11 @@ function App() {
         <Route
           path="/"
           exact
-          render={() => {
+          render={(routerProps) => {
             return (
               <Layout>
                 {" "}
-                <Home />
+                <Home {...routerProps}/>
               </Layout>
             );
           }}
@@ -24,23 +25,21 @@ function App() {
         {/* Artist */}
         <Route
           path="/artist/:artistName"
-          exact
-          render={() => {
+          render={(routerProps) => {
             return (
               <Layout>
-                <Home />
+                <Artist {...routerProps}/>
               </Layout>
             );
           }}
         />
         {/* Album */}
         <Route
-          path="/artist/:albumId"
-          exact
-          render={() => {
+          path="/album/:albumId"
+          render={(routerProps) => {
             return (
               <Layout>
-                <Home />
+                <Album {...routerProps}/>{" "}
               </Layout>
             );
           }}

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function AlbumCard() {
+export default function AlbumCard({albumId}) {
     return (
-        <Link to='/artist/' className="recent-card p-3">
+        <Link to={'/album/' + albumId} className="recent-card p-3" key={albumId + 123}>
           <div className="img-card">
             <img
               src="https://i1.sndcdn.com/artworks-000007961789-vo19ve-t500x500.jpg"

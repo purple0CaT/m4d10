@@ -30,7 +30,6 @@ export default function SideBar() {
               type="text"
               className="ml-2"
               id="searchIt"
-              onkeyup="fetchAlb(this.value)"
               placeholder="...search"
             />
           </div>
@@ -58,58 +57,58 @@ export default function SideBar() {
       {/* <!-- side bar tracks scroll --> */}
       <div className="side-bar-bottom">
         <div className="side-tracks">
-          <Link to={'/artist/'} class="d-flex justify-content-between">
+          <Link to={'/artist/'} className="d-flex justify-content-between">
             <p>Funky Heavy Bluesy</p>
-            <i class="fas fa-user-friends"></i>
+            <i className="fas fa-user-friends"></i>
           </Link>
-          <a href="#" class="d-flex justify-content-between">
+          <a href="#" className="d-flex justify-content-between">
             <p>Rammstein</p>
           </a>
-          <a href="#" class="d-flex justify-content-between">
+          <a href="#" className="d-flex justify-content-between">
             <p>Queen</p>
           </a>
-          <a href="#" class="d-flex justify-content-between">
+          <a href="#" className="d-flex justify-content-between">
             <p>AC/DC</p>
           </a>
-          <a href="#" class="d-flex justify-content-between">
+          <a href="#" className="d-flex justify-content-between">
             <p>Vitalic</p>
-            <i class="fas fa-user-friends"></i>
+            <i className="fas fa-user-friends"></i>
           </a>
-          <a href="#" class="d-flex justify-content-between">
+          <a href="#" className="d-flex justify-content-between">
             <p>Boney M</p>
           </a>
-          <a href="#" class="d-flex justify-content-between">
+          <a href="#" className="d-flex justify-content-between">
             <p>Madonna</p>
-            <i class="fas fa-user-friends"></i>
+            <i className="fas fa-user-friends"></i>
           </a>
-          <a href="#" class="d-flex justify-content-between">
+          <a href="#" className="d-flex justify-content-between">
             <p>Red Hot Chili Peppers</p>
-            <i class="fas fa-user-friends"></i>
+            <i className="fas fa-user-friends"></i>
           </a>
-          <a href="#" class="d-flex justify-content-between">
+          <a href="#" className="d-flex justify-content-between">
             <p>Kizaru</p>
           </a>
-          <a href="#" class="d-flex justify-content-between">
+          <a href="#" className="d-flex justify-content-between">
             <p>KINO</p>
           </a>
-          <a href="#" class="d-flex justify-content-between">
+          <a href="#" className="d-flex justify-content-between">
             <p>Jain</p>
           </a>
-          <a href="#" class="d-flex justify-content-between">
+          <a href="#" className="d-flex justify-content-between">
             <p>Muse</p>
-            <i class="fas fa-user-friends"></i>
+            <i className="fas fa-user-friends"></i>
           </a>
-          <a href="#" class="d-flex justify-content-between">
+          <a href="#" className="d-flex justify-content-between">
             <p>Magic Sword</p>
-            <i class="fas fa-user-friends"></i>
+            <i className="fas fa-user-friends"></i>
           </a>
-          <a href="#" class="d-flex justify-content-between">
+          <a href="#" className="d-flex justify-content-between">
             <p>The Knife</p>
-            <i class="fas fa-user-friends"></i>
+            <i className="fas fa-user-friends"></i>
           </a>
-          <a href="#" class="d-flex justify-content-between">
+          <a href="#" className="d-flex justify-content-between">
             <p>Dance With the Dead</p>
-            <i class="fas fa-user-friends"></i>
+            <i className="fas fa-user-friends"></i>
           </a>
         </div>
         <br />
