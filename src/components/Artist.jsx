@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Spinner } from "react-bootstrap";
+import { Spinner, Button } from "react-bootstrap";
+import { BsThreeDots } from "react-icons/bs";
 
 export default function Artist({ match }) {
   const [Artist, setArtist] = useState({ artistD: "" });
@@ -30,22 +31,31 @@ export default function Artist({ match }) {
   return (
     <>
       {Artist.artistD ? (
-        <div className="artist-top-bg">
-
-            <div className="h-100 d-flex flex-column justify-content-center ">
-              <h2 className="">{Artist.artistD.name}</h2>
-              <p>{Artist.artistD.name}</p>
+        <div className="artist-top-bg text-center">
+          <img
+            className="my-auto text-center artist-img"
+            src={Artist.artistD.picture_xl}
+            alt=""
+          />
+          <div className="artist-details">
+            <small className="text-muted"> LISTENERS</small>
+            <h2 className="">{Artist.artistD.name}</h2>
+            <div className='d-flex justify-content-center mt-3'>
+              <Button className='play-alb-btn  mx-2' variant='success'>PLAY</Button>
+              <Button className='play-alb-btn mx-2 fllw-btn'> FOLLOW</Button>
+              <BsThreeDots className='my-auto ml-2' size='2rem'/>
+            </div>{" "}
+            <div>
+              <p>OVERVIEW</p>
+              <p>RELATED ARTISTS</p>
+              <p>ABOUT</p>
             </div>
-            <div
-            className="my-auto text-center h-100 position-absolute"
-            style={{
-              backgroundImage: "url(" + Artist.artistD.picture_xl + ")",opacity:'0.5'
-            }}
-          >
           </div>
         </div>
       ) : (
-        <Spinner className="mx-auto" animation="grow" variant="light" />
+        <div className="w-100 text-center mt-5">
+          <Spinner className="mt-5" animation="grow" variant="light" />
+        </div>
       )}
     </>
   );
