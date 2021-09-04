@@ -4,29 +4,28 @@ import AlbumCard from "./AlbumCard";
 import AlbumTopCard from "./AlbumTopCard";
 import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
+import { traverseTwoPhase } from "react-dom/test-utils";
 
 export default function Home() {
-  // Albums
-  const [Album, setAlbum] = useState({ albumSearch: "" });
-  const [AlbumSecond, setAlbumSecond] = useState({ albumSearch: "" });
+  //   ARTISTS DEFAULT
   const artists = [
     {
-      id: 4198565,
+      id: 641,
       img: "https://cdns-images.dzcdn.net/images/artist/40e4c29fc2c05da589f7d8bba4d25c35/250x250-000000-80-0-0.jpg",
       title: "Vitalic",
     },
     {
-      id: 92719900,
+      id: 115,
       img: "https://cdns-images.dzcdn.net/images/artist/ad61d6e0fa724d880db979c9ac8cc5e3/250x250-000000-80-0-0.jpg",
       title: "AC/DC",
     },
     {
-      id: 678687242,
+      id: 464,
       img: "https://cdns-images.dzcdn.net/images/artist/1cae2b50f6668857cf52e14480e21477/250x250-000000-80-0-0.jpg",
       title: "Rammstein",
     },
     {
-      id: 9997018,
+      id: 412,
       img: "https://cdns-images.dzcdn.net/images/artist/0b17b99897d17ceb7027ed57cdbb7044/250x250-000000-80-0-0.jpg",
       title: "Queen",
     },
@@ -34,8 +33,11 @@ export default function Home() {
       id: 6588061,
       img: "https://cdns-images.dzcdn.net/images/artist/197a025e02d4f5169b7b904dfe687eaa/250x250-000000-80-0-0.jpg",
       title: "Magic Sword",
-    }
+    },
   ];
+  // Albums
+  const [Album, setAlbum] = useState({ albumSearch: "" });
+  const [AlbumSecond, setAlbumSecond] = useState({ albumSearch: "" });
   // Update
   useEffect(() => {
     fetchAlbum("AC/DC");
@@ -51,6 +53,9 @@ export default function Home() {
         let data = await response.json();
         if (search === "AC/DC") {
           setAlbum({ albumSearch: data });
+          setTimeout(() => {
+            albumSorting();
+          }, 7000);
         } else if (search === "Rammstein") {
           setAlbumSecond({ albumSearch: data });
         }
@@ -61,9 +66,40 @@ export default function Home() {
       console.log(error);
     }
   };
-  //   const
-  let artist = [1];
-  let album = [1];
+  const [Test, setTest] = useState();
+  // TEST FUNCTIONS
+  const albumSorting = () => {
+    let firstN = Album.albumSearch.data.map((ids) => ids.id);
+    console.log(Album.albumSearch);
+    let thisIds = uniqBy(firstN, JSON.stringify);
+    thisIds.slice(0, 2).map((ids) => fetchTest(ids));
+  };
+  const uniqBy = (a, key) => {
+    var index = [];
+    return a.filter(function (item) {
+      var k = key(item);
+      return index.indexOf(k) >= 0 ? false : index.push(k);
+    });
+  };
+  //   searchbyAlbums
+  const [TestAlbums, setTestAlbums] = useState();
+  const fetchTest = async (albId) => {
+    try {
+      let response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/deezer/album/" + albId
+      );
+      if (response.ok) {
+        let data = await response.json();
+        setTestAlbums({ ...TestAlbums, albId: data });
+        console.log(TestAlbums);
+      } else {
+        console.log("Error");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  //
   return (
     <div className="mt-5 px-5">
       <br />

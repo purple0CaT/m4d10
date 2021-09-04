@@ -38,7 +38,7 @@ export default function Artist({ match }) {
             alt=""
           />
           <div className="artist-details">
-            <small className="text-muted"> LISTENERS</small>
+            <small style={{color: '#808080'}}>{Artist.artistD.nb_fan} LISTENERS</small>
             <h1 className="font-weight-bold">{Artist.artistD.name}</h1>
             <div className='d-flex justify-content-center mt-3'>
               <Button className='play-alb-btn  mx-2' variant='success'>PLAY</Button>
