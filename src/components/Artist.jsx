@@ -39,16 +39,16 @@ export default function Artist({ match }) {
           />
           <div className="artist-details">
             <small className="text-muted"> LISTENERS</small>
-            <h2 className="">{Artist.artistD.name}</h2>
+            <h1 className="font-weight-bold">{Artist.artistD.name}</h1>
             <div className='d-flex justify-content-center mt-3'>
               <Button className='play-alb-btn  mx-2' variant='success'>PLAY</Button>
               <Button className='play-alb-btn mx-2 fllw-btn'> FOLLOW</Button>
               <BsThreeDots className='my-auto ml-2' size='2rem'/>
             </div>{" "}
-            <div>
-              <p>OVERVIEW</p>
-              <p>RELATED ARTISTS</p>
-              <p>ABOUT</p>
+            <div className='d-flex justify-content-center artistTopMargin'>
+              <small className='overview-about font-weight-bold active-artist-about'>OVERVIEW</small>
+              <small className='overview-about font-weight-bold'>RELATED ARTISTS</small>
+              <small className='overview-about font-weight-bold'>ABOUT</small>
             </div>
           </div>
         </div>
